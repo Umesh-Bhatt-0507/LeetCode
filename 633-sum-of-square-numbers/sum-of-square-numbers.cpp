@@ -1,19 +1,19 @@
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        if(c==0){
-            return true;
-        }
-        set<long long> store;
-        long long count=0;
-        long long val=0;
-        store.insert(val);
-        while(val<=c){
-            count++;
-            val=count*count;
-            store.insert(val);
-            if(store.count(c-val)){
+        long long left=0;
+        long long right=sqrt(c);
+        long long sum=0;
+        while(left<=right){
+            sum=left*left+right*right;
+            if(sum==c){
                 return true;
+            }
+            else if(sum>c){
+                right--;
+            }
+            else{
+                left++;
             }
         }
         return false;
