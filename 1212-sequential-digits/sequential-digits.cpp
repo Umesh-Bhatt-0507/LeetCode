@@ -8,9 +8,9 @@ public:
             if(store[i]>=low && store[i]<=high){
                 answer.push_back(store[i]);
             }
-            // if(store[i]>=high){
-            //     break;
-            // }
+            if(store[i]>=high){
+                break;
+            }
         }
         return answer;
     }
