@@ -5,8 +5,8 @@ public:
         int pre=1;
         int suf=1;
         for(int i=1;i<nums.size();i++){
-            pre=nums[i-1]*pre;
-            suf=nums[nums.size()-i]*suf;
+            pre*=nums[i-1];
+            suf*=nums[nums.size()-i];
             answer[i]*=pre;
             answer[nums.size()-i-1]*=suf;
         }   
