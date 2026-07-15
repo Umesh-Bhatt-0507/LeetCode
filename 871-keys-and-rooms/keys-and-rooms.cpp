@@ -1,12 +1,10 @@
 class Solution {
 public:
     void helper(vector<vector<int>>& rooms,unordered_set<int> &store,int src){
-        if(store.count(src)){
-            store.erase(src);
-            for(auto v:rooms[src]){
-                if(store.count(v)){
-                    helper(rooms,store,v);
-                }
+        store.erase(src);
+        for(auto v:rooms[src]){
+            if(store.count(v)){
+                helper(rooms,store,v);
             }
         }
     }
