@@ -7,15 +7,18 @@ public:
             int v=edge[1];
 
             adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
-        for(auto &[u,v]:adj){
-            if(v.size()==edges.size()){
+            if(adj[u].size()==edges.size()){
                 return u;
-            }          
+            }
+            adj[v].push_back(u);
+            if(adj[v].size()==edges.size()){
+                return v;
+            }
         }
-        // for(auto v:adj){
-        //     cout<<adj[v].size()<<endl;
+        // for(auto &[u,v]:adj){
+        //     if(v.size()==edges.size()){
+        //         return u;
+        //     }          
         // }
         return -1;
     }
