@@ -1,19 +1,19 @@
 class Solution {
 public:
-    vector<vector<int>> answer;
-    vector<int> arr;
-    void add(vector<int> &nums,int i){
+    void add(vector<int>& nums,int i,vector<vector<int>> &answer,vector<int> part){
         if(i==nums.size()){
-            answer.push_back(arr);
+            answer.push_back(part);
             return;
         }
-        arr.push_back(nums[i]);
-        add(nums,i+1);
-        arr.pop_back();
-        add(nums,i+1);
+        part.push_back(nums[i]);
+        add(nums,i+1,answer,part);
+        part.pop_back();
+        add(nums,i+1,answer,part);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
-        add(nums,0);
+        vector<vector<int>> answer;
+        vector<int> part;
+        add(nums,0,answer,part);
         return answer;
     }
 };
