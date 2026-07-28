@@ -8,7 +8,6 @@ public:
         int init=image[sr][sc];
         queue<pair<int,int>> store;
         store.push({sr,sc});
-        // image[sr][sc]=color;
         while(!store.empty()){
             int i=store.front().first;
             int j=store.front().second;
