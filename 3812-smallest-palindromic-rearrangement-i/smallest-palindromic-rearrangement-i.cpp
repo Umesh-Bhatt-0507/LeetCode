@@ -1,20 +1,13 @@
 class Solution {
 public:
     string smallestPalindrome(string s) {
-        string ans=s;
-
         int n=s.size();
         int mid=n/2;
-
         sort(s.begin(),s.begin()+mid);
-
         for(int i=0;i<mid;i++){
-            ans[i]=s[i];
+            s[n-1-i]=s[i];
         }
-        for(int i=0;i<mid;i++){
-            ans[n-1-i]=s[i];
-        }
-        return ans;
+        return s;
         
 
 
