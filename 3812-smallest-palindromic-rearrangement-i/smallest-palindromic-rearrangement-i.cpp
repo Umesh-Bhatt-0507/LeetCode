@@ -1,19 +1,36 @@
 class Solution {
 public:
     string smallestPalindrome(string s) {
-        string ans="";
-        int l=0;
-        int r=s.size();
-        int mid=l+(r-l)/2;
+        string ans=s;
+
+        int n=s.size();
+        int mid=n/2;
+
+        sort(s.begin(),s.begin()+mid);
+
         for(int i=0;i<mid;i++){
-            ans+=s[i];
+            ans[i]=s[i];
         }
-        sort(ans.begin(),ans.end());
-        string x=ans;
-        sort(x.rbegin(),x.rend());
-        if(s.size()%2!=0){
-            return ans+s[mid]+x;
+        for(int i=0;i<mid;i++){
+            ans[n-1-i]=s[i];
         }
-        return ans+x;
+        return ans;
+        
+
+
+        // string ans="";
+        // int l=0;
+        // int r=s.size();
+        // int mid=l+(r-l)/2;
+        // for(int i=0;i<mid;i++){
+        //     ans+=s[i];
+        // }
+        // sort(ans.begin(),ans.end());
+        // string x=ans;
+        // sort(x.rbegin(),x.rend());
+        // if(s.size()%2!=0){
+        //     return ans+s[mid]+x;
+        // }
+        // return ans+x;
     }
 };
