@@ -2,13 +2,12 @@ class Solution {
 public:
     int minimumPushes(string word) {
         int size=word.size();
-        int rem=size%8;
-        int que=size/8;
-        rem*=(que+1);
+        int quo=size/8;
+        int rem=size%8* (quo+1);
         int mul=0;
-        while(que!=0){
-            mul+=que;
-            que--;
+        while(quo!=0){
+            mul+=quo;
+            quo--;
         }
         return 8*(mul)+rem;
         
