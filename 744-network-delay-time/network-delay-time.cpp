@@ -5,17 +5,19 @@ public:
         for(auto &t:times){
             graph[t[0]].push_back({t[1],t[2]});
         }
+        
         vector<int> dist(n+1,INT_MAX);
         dist[k]=0;
-        priority_queue< pair<int,int> , vector<pair<int,int>> , greater<pair<int,int>>> pq;
+        priority_queue<pair<int,int> , vector<pair<int,int>> ,greater<pair<int,int>>> pq;
         pq.push({0,k});
+
         while(pq.size()>0){
             int u=pq.top().second;
             pq.pop();
-            for(auto &edge:graph[u]){
-                if(dist[edge.first]>dist[u]+edge.second){
-                    dist[edge.first]=dist[u]+edge.second;
-                    pq.push({dist[edge.first],edge.first});
+            for(auto &e:graph[u]){
+                if(dist[e.first]>dist[u]+e.second){
+                    dist[e.first]=dist[u]+e.second;
+                    pq.push({dist[e.first],e.first});
                 }
             }
         }
