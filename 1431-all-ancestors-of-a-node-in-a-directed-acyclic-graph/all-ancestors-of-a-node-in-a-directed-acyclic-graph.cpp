@@ -19,6 +19,12 @@ public:
             vector<bool> visited(n,false);
             dfs(i,i,visited,answer,adj);
         }
+        // for(int i=0;i<n;i++){
+        //     for(auto &v:adj[i]){
+        //         answer[v].insert(answer[v].end(), answer[i].begin(), answer[i].end());
+        //         answer[v].push_back(i);
+        //     }
+        // }
         return answer;
     }
 };
