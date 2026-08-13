@@ -1,17 +1,19 @@
 class Solution {
 public:
     vector<int> par,rank;
+    bool flag=false;
     int find(int x){
         if(x==par[x]){
             return x;
         }
         return par[x]=find(par[x]);
     }
-    vector<int> unionByRank(int a,int b){
+    void unionByRank(int a,int b){
         int parA= find(a);
         int parB=find(b);
         if(parA==parB){
-            return {a,b};
+            flag=true;
+            return;
         }
         if(rank[parA]==rank[parB]){
             par[parB]=parA;
@@ -21,7 +23,6 @@ public:
         }else{
             par[parA]=parB;
         }
-        return {};
     }
 
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
@@ -30,9 +31,9 @@ public:
             rank.push_back(0);
         }
         for(auto &e:edges){
-            vector<int> v=unionByRank(e[0],e[1]);
-            if(v.size()>1){
-                return v;
+            unionByRank(e[0],e[1]);
+            if(flag){
+                return e;
             }
         }
         return {};
