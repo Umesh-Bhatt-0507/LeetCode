@@ -17,7 +17,8 @@ public:
         vector<bool> inMST(n,false);
         int minCost=0;
         pq.push({0,0});
-        while(pq.size()>0){
+        int count=0;
+        while(pq.size()>0  && count<n){
             int w=pq.top().first;
             int u=pq.top().second;
             pq.pop();
@@ -29,6 +30,7 @@ public:
                         pq.push({v.second,v.first});
                     }
                 }
+                count++;
             }
         }
         return minCost;
