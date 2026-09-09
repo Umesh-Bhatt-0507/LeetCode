@@ -5,9 +5,7 @@ public:
         long long k=999; 
         while(n>k){
             ans+=n-k;
-            if(n>k){
-                k= k*1000+ 999;
-            }
+            k= k*1000+ 999;
         }
         return ans;
     }
