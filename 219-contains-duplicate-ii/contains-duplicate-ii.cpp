@@ -11,14 +11,18 @@ public:
         // return false;
 
         unordered_set<int> s;
+        int r=0;
+        int l=0;
         for(int i=0;i<nums.size();i++){
-            if(s.size() > k){
+            if(r-l > k){
                 s.erase(nums[i-k-1]);
+                l++;
             }
             if(s.count(nums[i])){
                 return true;
             }
             s.insert(nums[i]);
+            r++;
         }
         return false;
     }
