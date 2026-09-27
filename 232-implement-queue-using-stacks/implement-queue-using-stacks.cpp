@@ -13,30 +13,30 @@ public:
     int pop() {
         if(out.empty()){
             while(!in.empty()){
-                int ans=in.top();
+                int val=in.top();
                 in.pop();
-                out.push(ans);
+                out.push(val);
             }
         }
-        int ans=out.top();
+        int val=out.top();
         out.pop();
-        return ans;
+        return val;
     }
     
     int peek() {
         if(out.empty()){
             while(!in.empty()){
-                int ans=in.top();
+                int val=in.top();
                 in.pop();
-                out.push(ans);
+                out.push(val);
             }
         }
-        int ans=out.top();
-        return ans;
+        int val=out.top();
+        return val;
     }
     
     bool empty() {
-        return (in.empty() and out.empty());
+        return (in.empty() && out.empty());
     }
 };
 
