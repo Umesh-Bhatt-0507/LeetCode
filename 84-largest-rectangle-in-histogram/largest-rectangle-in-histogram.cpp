@@ -14,14 +14,12 @@ public:
             }
             leftSmaller[i]= st1.empty()? -1 : st1.top();
             st1.push(i);
-        }
 
-        for(int i=n-1;i>=0;i--){
-            while(!st2.empty() && heights[st2.top()] >= heights[i]){
+            while(!st2.empty() && heights[st2.top()] >= heights[n-i-1]){
                 st2.pop();
             }
-            rightSmaller[i]= st2.empty() ? n:st2.top();
-            st2.push(i);
+            rightSmaller[n-i-1]= st2.empty() ? n:st2.top();
+            st2.push(n-i-1);
         }
         
         for(int i=0;i<n;i++){
