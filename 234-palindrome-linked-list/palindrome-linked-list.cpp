@@ -13,12 +13,12 @@ public:
     bool isPalindrome(ListNode* head) {
         ListNode *slow=head;
         ListNode *fast=head;
-        while(fast->next!=NULL and fast->next->next!=NULL){
+        while(fast->next !=NULL && fast->next->next!=NULL){
             slow=slow->next;
             fast=fast->next->next;
         }
-        ListNode *cur=slow;
         ListNode *pre=NULL;
+        ListNode *cur=slow;
         ListNode *nex=slow->next;
         while(nex){
             cur=nex;
@@ -29,7 +29,7 @@ public:
         ListNode *c1=head;
         ListNode *c2=pre;
         while(c2){
-            if(c2->val !=c1->val){
+            if(c1->val != c2->val){
                 return false;
             }
             c1=c1->next;
@@ -52,6 +52,5 @@ public:
         //     store.pop();
         //     temp=temp->next;
         // }
-        return true;
     }
 };
