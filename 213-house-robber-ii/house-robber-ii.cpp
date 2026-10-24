@@ -7,8 +7,7 @@ public:
         for(int i=st+2,j=2;i<=end;i++,j++){
             dp[j]=max(nums[i]+dp[j-2],dp[j-1]);
         }
-        int n=dp.size();
-        return dp[n-1];
+        return dp[end-st];
     }
     int rob(vector<int>& nums) {
         int n=nums.size();
