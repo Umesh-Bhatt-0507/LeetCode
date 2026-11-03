@@ -16,7 +16,7 @@ public:
         if(n<2){
             return nums[0];
         }
-        vector<int> dp(n,-1);
+        // vector<int> dp(n,-1);
         // return ans(nums,0,dp);
         // dp[0]=nums[0];
         // dp[1]=max(nums[0],nums[1]);
