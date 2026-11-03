@@ -12,8 +12,8 @@ public:
     //     return dp[idx]=max(left,right);
     // }
     int rob(vector<int>& nums) {
-        int n=nums.size();
-        if(n<2){
+        // int n=nums.size();
+        if(nums.size()<2){
             return nums[0];
         }
         // vector<int> dp(n,-1);
@@ -22,7 +22,7 @@ public:
         // dp[1]=max(nums[0],nums[1]);
         int p2=nums[0];
         int p1=max(nums[0],nums[1]);
-        for(int i=2;i<n;i++){
+        for(int i=2;i<nums.size();i++){
             int curr=max(nums[i]+p2,p1);
             p2=p1;
             p1=curr;
